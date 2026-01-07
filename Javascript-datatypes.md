@@ -229,8 +229,6 @@ let c = -10;
 
 ## 3. More Ways to Write Numbers
 
-Your section is **mostly correct**, with minor clarification added.
-
 ### Large Numbers
 
 ```js
