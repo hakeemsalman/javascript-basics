@@ -27,6 +27,16 @@
   - [Symbol Properties are Skipped in Loops](#symbol-properties-are-skipped-in-loops)
   - [Global Symbols with Symbol.for()](#global-symbols-with-symbolfor)
 - [Conversation rules](#conversation-rules)
+  - [Auto conversion](#auto-conversion)
+  - [Why Does This Matter?](#why-does-this-matter)
+  - [Conversion “Hints”](#conversion-hints)
+  - [Algorithm (Order of Attempts)](#algorithm-order-of-attempts)
+  - [Core Methods Explained](#core-methods-explained)
+    - [1. `Symbol.toPrimitive`](#1-symboltoprimitive)
+    - [2. `toString()`](#2-tostring)
+    - [3. `valueOf()`](#3-valueof)
+  - [Workings in Practice](#workings-in-practice)
+  - [**Key Points You Can Include in Notes**](#key-points-you-can-include-in-notes)
 
 ```javascript
 let user = {     // an object
@@ -684,8 +694,6 @@ Key Points:
 
 # Conversation rules
 
-_PENDING_
-
 > objects are auto-converted to primitives, and then the operation is carried out over these primitives and results in a primitive value.
 
 [Type Conversions](https://javascript.info/type-conversions) the rules for numeric, string and boolean conversions of primitives. Now for objects,
@@ -693,3 +701,152 @@ _PENDING_
 1. There’s no conversion to boolean. All objects are `true` in a boolean context.
 2. The numeric conversion happens when we subtract objects or apply mathematical functions. For instance, `Date`objects (to be covered in the chapter [Date and time](https://javascript.info/date)) can be subtracted, and the result of `date1 - date2` is the time difference between two dates.
 3. As for the string conversion – it usually happens when we output an object with `alert(obj)` and in similar contexts.
+
+## Auto conversion
+
+When an **object is used where a primitive value is expected**, JavaScript automatically converts it to a primitive. This happens for operators like `+`, `-`, comparisons, `alert()`, and other built-in operations that *need* a primitive value first.
+
+---
+
+## Why Does This Matter?
+
+Objects do not behave like primitives (e.g., numbers or strings). But many operations require primitives, so JavaScript tries to **coerce objects into primitive values** before performing those operations. 
+
+For example:
+
+```javascript
+{} + 2      // "[object Object]2" (string concatenation)
+{} * 2      // NaN         (number conversion fails)
+alert({}); // "[object Object]" (string conversion)
+```
+
+---
+
+## Conversion “Hints”
+
+JavaScript uses a **hint** to decide what type of primitive is wanted:
+
+* `"string"` — for string contexts such as `alert(obj)` or template literals.
+* `"number"` — for maths like `obj * 2` or unary `+obj`.
+* `"default"` — for binary `+` and `==` comparisons.
+  Most built-in objects treat `"default"` the same way as `"number"`. 
+
+---
+
+## Algorithm (Order of Attempts)
+
+When converting an object to a primitive, JavaScript tries:
+
+1. **`obj[Symbol.toPrimitive](hint)`**
+   If this exists, it is used first. It must return a primitive or a `TypeError` is thrown. 
+
+2. **If `hint == "string"`**
+
+   * Call `toString()`
+   * If that returns a primitive, use it.
+   * Otherwise try `valueOf()`. 
+
+3. **If `hint == "number"` or `"default"`**
+
+   * Call `valueOf()`
+   * If that returns a primitive, use it.
+   * Otherwise try `toString()`. 
+
+If none returns a primitive, a `TypeError` is thrown. 
+
+---
+
+## Core Methods Explained
+
+### 1. `Symbol.toPrimitive`
+
+**Modern, most flexible method**—it handles all hints:
+
+```javascript
+obj[Symbol.toPrimitive] = function(hint) {
+  if (hint === "string") return "...";
+  if (hint === "number") return 123;
+  return "..."; // for default
+};
+```
+
+This tells JavaScript *exactly* what to return for each context. 
+
+---
+
+### 2. `toString()`
+
+Older technique, prioritized for **string** conversion:
+
+* For plain objects, default `.toString()` returns `"[object Object]"`.
+* It should return a primitive (usually a string). 
+
+---
+
+### 3. `valueOf()`
+
+Older technique, prioritized for **number/default** conversion:
+
+* For plain objects, default `.valueOf()` returns the object itself (ignored).
+* If you override it to return a primitive (like a number), that value is used. ([MDN Web Docs][2])
+
+---
+
+## Workings in Practice
+
+* `alert(obj)` → attempts string conversion.
+* `+obj` or `obj - 1` → numeric conversion.
+* `obj + "foo"` → default (`toPrimitive` or numeric), then string concatenation if a string is produced. 
+
+Example with defined methods:
+
+```javascript
+let user = {
+  name: "John",
+  money: 1000,
+  [Symbol.toPrimitive](hint) {
+    return hint == "string" ? `{name: "${this.name}"}` : this.money;
+  }
+};
+
+alert(user);     // "{name: "John"}"
+alert(+user);    // 1000
+alert(user + 0); // 1000
+```
+
+Or with old-style methods:
+
+```javascript
+let user = {
+  name: "John",
+  toString() {
+    return this.name;
+  },
+  valueOf() {
+    return this.name.length;
+  }
+};
+
+alert(user);  // toString → "John"
+alert(+user); // valueOf → 4
+```
+
+Note: `toString()` may be used even for `+` if `valueOf` doesn’t return a primitive. 
+
+---
+
+## **Key Points You Can Include in Notes**
+
+* Conversion happens **automatically** when a primitive is required. 
+* There are **three “hints”**: `"string"`, `"number"`, `"default"`. 
+* **Priority order:** `Symbol.toPrimitive` → `toString/valueOf` depending on hint. 
+* **Methods must return a primitive** (string, number, boolean, symbol, etc.). 
+* Default `.valueOf()` returns the object itself and is ignored. ([MDN Web Docs][2])
+* This is useful when customizing how objects behave with operators or functions that expect primitives. 
+
+---
+
+If you want, I can format this as **ready-to-copy Markdown** for your GitHub notes.
+
+[1]: https://javascript.info/object-toprimitive?utm_source=chatgpt.com "Object to primitive conversion"
+[2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf?utm_source=chatgpt.com "Object.prototype.valueOf() - JavaScript | MDN"

@@ -1,83 +1,79 @@
 # Javascript Fundamentals
 
-### Keypoints:
+## Keypoints:
 
 1. _JavaScript_ was initially created to “make web pages alive”.
 2. The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
 3. Scripts are provided and executed as plain text. They don’t need special preparation or compilation to run.
 
-#### Fundamentals
-
 - [Javascript Fundamentals](#javascript-fundamentals)
-		- [Keypoints:](#keypoints)
-			- [Fundamentals](#fundamentals)
-	- [1 Hello World](#1-hello-world)
-	- [2 Code statements, semicolon, comments](#2-code-statements-semicolon-comments)
+	- [Keypoints:](#keypoints)
+	- [Hello World](#hello-world)
+	- [Code statements, semicolon, comments](#code-statements-semicolon-comments)
 		- [Statements](#statements)
 			- [**Semicolon**](#semicolon)
 			- [**Comments**](#comments)
-	- [3 Modern Mode](#3-modern-mode)
-	- [4 Variables](#4-variables)
-		- [**Variable Naming**](#variable-naming)
+	- [Modern Mode](#modern-mode)
+	- [Variables](#variables)
+		- [Variable Naming](#variable-naming)
 			- [Keypoints:](#keypoints-1)
 		- [Reserved words](#reserved-words)
-		- [**Constants**](#constants)
-	- [5 Data types](#5-data-types)
-			- [1 Number](#1-number)
-			- [2 BigInt](#2-bigint)
-			- [3 String](#3-string)
-			- [4 Boolean](#4-boolean)
-			- [5 Null](#5-null)
-			- [6 Undefined](#6-undefined)
-			- [7 Objects](#7-objects)
-			- [8 Symbols](#8-symbols)
+		- [Constants](#constants)
+	- [Data types](#data-types)
+		- [Number](#number)
+		- [BigInt](#bigint)
+		- [String](#string)
+		- [Boolean](#boolean)
+		- [Null](#null)
+		- [Undefined](#undefined)
+		- [Objects](#objects)
+		- [Symbols](#symbols)
 			- [typeof Operator](#typeof-operator)
-	- [6 Interaction](#6-interaction)
+	- [Interaction(alert, prompt, confirm.....)](#interactionalert-prompt-confirm)
 			- [1 Alert](#1-alert)
 			- [2 Prompt](#2-prompt)
 			- [3 Confirm](#3-confirm)
-	- [7 Type Conversions](#7-type-conversions)
-			- [1 String](#1-string)
-			- [2 Number](#2-number)
-			- [3 Boolean](#3-boolean)
-	- [8 Basic operators, maths](#8-basic-operators-maths)
-			- [1 String concatenation](#1-string-concatenation)
-			- [2 Operator precedence](#2-operator-precedence)
-			- [3 Modify-in-place](#3-modify-in-place)
-			- [4 Increment \& decrement](#4-increment--decrement)
-			- [5 Bitwise operators](#5-bitwise-operators)
-			- [6 Comma](#6-comma)
-	- [9 Comparisions](#9-comparisions)
-			- [1 String comparisions](#1-string-comparisions)
-			- [2 Strict equality](#2-strict-equality)
-	- [10 Conditions](#10-conditions)
-	- [11 Logical operators](#11-logical-operators)
-	- [12 Nullish coalescing operator '??'](#12-nullish-coalescing-operator-)
-	- [13 Loops: while \& for](#13-loops-while--for)
-			- [1 While Loop](#1-while-loop)
-			- [2 do...while loop](#2-dowhile-loop)
-			- [3 for loop](#3-for-loop)
-			- [4 Break and Continue](#4-break-and-continue)
-			- [5 Continue](#5-continue)
-			- [6 Label](#6-label)
-	- [14 Switch statements](#14-switch-statements)
-	- [15 Functions](#15-functions)
-			- [1 Local variables](#1-local-variables)
-			- [2 Outer variables](#2-outer-variables)
-			- [3 Parameters](#3-parameters)
-			- [4 Default values](#4-default-values)
-			- [5 Returning a value](#5-returning-a-value)
-			- [6 Naming a function](#6-naming-a-function)
-	- [16 Function expressions](#16-function-expressions)
-			- [1 Function is a value](#1-function-is-a-value)
-			- [2 Callback functions](#2-callback-functions)
-			- [3 Function Expression vs Function Declaration](#3-function-expression-vs-function-declaration)
-	- [17 Arrow functions, the basics](#17-arrow-functions-the-basics)
+	- [Type Conversions](#type-conversions)
+		- [String](#string-1)
+		- [Number](#number-1)
+		- [Boolean](#boolean-1)
+	- [Basic operators, maths](#basic-operators-maths)
+		- [String concatenation](#string-concatenation)
+		- [Operator precedence](#operator-precedence)
+		- [Modify-in-place](#modify-in-place)
+		- [Increment \& decrement](#increment--decrement)
+		- [Bitwise operators](#bitwise-operators)
+		- [Comma](#comma)
+	- [Comparisions](#comparisions)
+		- [String comparisions](#string-comparisions)
+		- [Strict equality](#strict-equality)
+	- [Conditions](#conditions)
+	- [Logical operators](#logical-operators)
+	- [Nullish coalescing operator '??'](#nullish-coalescing-operator-)
+	- [Loops: while \& for](#loops-while--for)
+		- [While Loop](#while-loop)
+		- [do...while loop](#dowhile-loop)
+		- [for loop](#for-loop)
+		- [Break and Continue](#break-and-continue)
+		- [Continue](#continue)
+		- [Label](#label)
+	- [Switch statements](#switch-statements)
+	- [Functions](#functions)
+		- [Local variables](#local-variables)
+		- [Outer variables](#outer-variables)
+		- [Parameters](#parameters)
+		- [Default values](#default-values)
+		- [Returning a value](#returning-a-value)
+		- [Naming a function](#naming-a-function)
+	- [Function expressions](#function-expressions)
+		- [Function is a value](#function-is-a-value)
+		- [Callback functions](#callback-functions)
+		- [Function Expression vs Function Declaration](#function-expression-vs-function-declaration)
+	- [Arrow functions, the basics](#arrow-functions-the-basics)
 			- [Resources](#resources)
 
 
-
-## 1 Hello World
+## Hello World
 
 1. To run script in browser, add `script` tag in html file. You can place tag almost anywhere in HTML document.
 2. The `<script>` tag contains JavaScript code which is automatically executed when the browser processes the tag.
@@ -129,7 +125,7 @@ Before the script...
 </tr>
 </table>
 
-## 2 Code statements, semicolon, comments
+## Code statements, semicolon, comments
 
 ### Statements
 
@@ -164,7 +160,7 @@ alert("World"); // This comment follows the statement
 */
 ```
 
-## 3 Modern Mode
+## Modern Mode
 
 1. `"use strict"` or `'use strict'` is located at the top of a script, the whole script works the “modern” way.
 2. To fully enable all features of modern JavaScript, we should start scripts with "use strict".
@@ -178,7 +174,7 @@ alert("World"); // This comment follows the statement
 5. }
 ```
 
-## 4 Variables
+## Variables
 
 1. A variable is a “named storage” for data. We can use variables to store any data.
 2. To create a variable in JavaScript, use the `let` keyword.
@@ -201,7 +197,7 @@ alert(message);
 let message = "That"; // SyntaxError: 'message' has already been declared
 ```
 
-### **Variable Naming**
+### Variable Naming
 
 #### Keypoints:
 
@@ -333,7 +329,7 @@ A few identifiers have a special meaning in some contexts without being reserved
 7. `of`
 8. `set`
 
-### **Constants**
+### Constants
 
 `const` variable _CANNOT_ be changed
 
@@ -342,7 +338,7 @@ const myBirthday = "18.04.1982";
 myBirthday = "01.01.2001"; // error, can't reassign the constant!
 ```
 
-## 5 Data types
+## Data types
 
 There are _eight_ basic data types in JavaScript.
 
@@ -355,7 +351,7 @@ There are _eight_ basic data types in JavaScript.
 		</tr>
 	</table>
 
-#### 1 Number
+### Number
 
 1. The number type represents both integer and floating point numbers.
 2. Also _special numeric values_ which also belong to this data type: `Infinity`, `-Infinity` and `NaN`.
@@ -363,7 +359,7 @@ There are _eight_ basic data types in JavaScript.
 4. `Infinity` represents the mathematical [Infinity](https://en.wikipedia.org/wiki/Infinity) ∞. It is a special value that’s greater than any number.
 5. `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance.
 6. Integer values larger than `(2`<sup>`53`</sup>`-1)` (that’s `9007199254740991`), or less than `-(2`<sup>`53`</sup>`-1)` for negatives.
-
+7. Please go through this [link](./Javascript-datatypes.md#numbers) for more details on **Numbers**
 ```javascript
 let num = 123;
 num = 12.345;
@@ -404,7 +400,7 @@ else console.log(false)
 // false
 ```
 
-#### 2 BigInt
+### BigInt
 
 1. **Bigint** can store greater than `number` type upto `1.7976931348623157 * 10`<sup>`308`</sup>.
 2. Used in cryptography or microsecond-precision timestamps.
@@ -415,9 +411,10 @@ else console.log(false)
 const bigInt = 1234567890123456789012345678901234567890n;
 ```
 
-#### 3 String
+### String
 
 1. A string in JavaScript must be surrounded by _quotes_.
+2. Please go through this [link](https://hakeemsalman.github.io/javascript-string-cheatsheet) for more details on **Strings**
 
 ```javascript
 let str = "Hello"; //Double quotes
@@ -427,7 +424,7 @@ let phrase = `can embed another ${str}`; //Backticks
 alert(`the result is ${1 + 2}`); // the result is 3, embed an expression using backticks
 ```
 
-#### 4 Boolean
+### Boolean
 
 1. The boolean type has only two values: `true` and `false`.
 
@@ -439,7 +436,7 @@ let isGreater = 4 > 1;
 alert(isGreater); // true (the comparison result is "yes")
 ```
 
-#### 5 Null
+### Null
 
 1. The special `null` value does not belong to any of the types described above.
 2. `null` is not a _reference to a non-existing object_ or a _null pointer_ like in some other languages.
@@ -451,7 +448,7 @@ let age = null;
 console.log(typeof age); // object
 ```
 
-#### 6 Undefined
+### Undefined
 
 1. The special value `undefined` also stands apart. It makes a type of its own, just like null.
 2. The meaning of `undefined` is “value is not assigned”.
@@ -467,17 +464,18 @@ age = undefined; // explicitly assign undefined to a variable
 alert(age); // "undefined"
 ```
 
-#### 7 Objects
+### Objects
 
 1. It is used to store and collections of data and more complex entities.
 2. It's Non-primitive Data type
-***pending***
 
-#### 8 Symbols
+Please go through this [link](./Javascript-objects.md) for more on Objects
+
+### Symbols
 
 1. It is used to create unique identifier for objects
 
-***pending***
+Please go through this [link](./Javascript-objects.md#symbol) for more details on Symbols 
 
 #### typeof Operator
 
@@ -505,7 +503,7 @@ typeof alert // "function"  (3)
 ```
 
 
-## 6 Interaction
+## Interaction(alert, prompt, confirm.....)
 
 To interact with user, we have `alert`, `prompt` and `confirm` functions in javascript.
 
@@ -546,13 +544,13 @@ let isBoss = confirm("Are you the boss?");
 alert( isBoss ); // true if OK is pressed
 ```
 
-## 7 Type Conversions
+## Type Conversions
 
 1. It's an *Explicitly* process conversion, convert a value to the expected data type,
 2. Type conversion is useful when we want `String` value instead of `boolean` value.
 
 
-#### 1 String
+### String
 
 1. Convert a any value to `string` type.
 
@@ -564,7 +562,7 @@ value = String(value); // now value is a string "true"
 alert(typeof value); // string
 ```
 
-#### 2 Number
+### Number
 
 1. Conver a value to `number` type.
 2. Value must be valid number, otherwise it convert to `NaN` type.
@@ -640,7 +638,7 @@ alert( Number(true) );        // 1
 alert( Number(false) );       // 0
 ```
 
-#### 3 Boolean
+### Boolean
 
 1. Values that are intuitively **empty** like `0`, `an empty string`, `null`, `undefined`, and `NaN`, become `false`.
 2. Other values become `true`.
@@ -654,7 +652,7 @@ alert( Boolean("hello") ); // true
 alert( Boolean("") ); // false
 ```
 
-## 8 Basic operators, maths
+## Basic operators, maths
 
 1. Addition `+`
 2. Subtraction `-`
@@ -675,7 +673,7 @@ alert( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
 alert( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
 ```
 
-#### 1 String concatenation
+### String concatenation
 
 1. If the binary + is applied to strings, it merges (concatenates) them.
 2. The binary `+` is the only operator that supports strings in such a way. Other arithmetic operators work only with numbers and always convert their operands to numbers.
@@ -716,9 +714,12 @@ alert( +apples + +oranges ); // 5
 // alert( Number(apples) + Number(oranges) ); // 5
 ```
 
-#### 2 Operator precedence
+### Operator precedence
 
 1. As we can see, the “unary plus” has a priority of `14` which is higher than the `11` of “addition” (binary plus). That’s why, in the expression  `"+apples + +oranges"`, unary pluses work before the addition.
+2. **Higher values** give the **High Priority**
+   1. `14` is High priority
+   2. `4` is low priority than `14`
 
 <table>
 	<tr>
@@ -731,7 +732,7 @@ alert( +apples + +oranges ); // 5
 		
 	`+`
 
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>14</td>
@@ -740,7 +741,7 @@ alert( +apples + +oranges ); // 5
 			
 	`-`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>13</td>
@@ -749,7 +750,7 @@ alert( +apples + +oranges ); // 5
 			
 	 `**`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>12</td>
@@ -757,8 +758,8 @@ alert( +apples + +oranges ); // 5
 		<td>
 			
 	 `*`
-	
-	</td>
+
+</td>
 	</tr>
 	<tr>
 		<td>12</td>
@@ -767,7 +768,7 @@ alert( +apples + +oranges ); // 5
 		 
 	 `/`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>11</td>
@@ -776,7 +777,7 @@ alert( +apples + +oranges ); // 5
 			
 	 `+`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>11</td>
@@ -785,7 +786,7 @@ alert( +apples + +oranges ); // 5
 			
 	 `-`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>...</td>
@@ -794,7 +795,7 @@ alert( +apples + +oranges ); // 5
 			
 	 `...`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>2</td>
@@ -803,7 +804,7 @@ alert( +apples + +oranges ); // 5
 			
 	 `=`
 	
-	</td>
+</td>
 	</tr>
 	<tr>
 		<td>...</td>
@@ -812,13 +813,13 @@ alert( +apples + +oranges ); // 5
 			
 	 `...`
 	
-	</td>
-	</tr>
+</td>
+</tr>
 
 </table>
 
 
-#### 3 Modify-in-place
+### Modify-in-place
 
 1. An operator to a variable and store the new result in that same variable.
 2. Short “modify-and-assign” operators exist for all arithmetical and bitwise operators: `/=`, `-=`, etc.
@@ -835,7 +836,7 @@ n *= 3 + 5; // right part evaluated first, same as n *= 8
 alert( n ); // 16
 ```
 
-#### 4 Increment & decrement
+### Increment & decrement
 
 1. Increment `++` increases a variable by 1. It is in postfix form.
 2. Decrement `--` decreases a variable by 1. It is in prefix form.
@@ -852,7 +853,7 @@ counter--;        // works the same as counter = counter - 1, but is shorter
 alert( counter ); // 1
 ```
 
-#### 5 Bitwise operators
+### Bitwise operators
 
 1. These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level.
 
@@ -866,7 +867,7 @@ alert( counter ); // 1
 
 You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) in this MDN docs.
 
-#### 6 Comma
+### Comma
 
 1. The comma operator , is one of the rarest and most unusual operators. Sometimes, it’s used to write shorter code.
 2. It has very low Precedence.
@@ -880,7 +881,7 @@ alert( a ); // 7 (the result of 3 + 4)
 ```
 
 
-## 9 Comparisions
+## Comparisions
 
 1. Greater/Less than `a > b` `a < b`
 2. Greater/less than or equals `a >= b`, `a <= b`
@@ -897,7 +898,7 @@ let result = 5 > 4; // assign the result of the comparison
 alert( result ); // true
 ```
 
-#### 1 String comparisions
+### String comparisions
 
 1. Comparison operators return a boolean value.
 2. Strings are compared letter-by-letter in the “dictionary” order.
@@ -945,7 +946,7 @@ alert( Boolean(b) ); // true
 alert(a == b); // true!
 ```
 
-#### 2 Strict equality
+### Strict equality
 
 1. A strict equality operator `===` checks the equality without type conversion.
 
@@ -966,7 +967,7 @@ alert( undefined < 0 ); // false (2)
 alert( undefined == 0 ); // false (3)
 ```
 
-## 10 Conditions 
+## Conditions 
 
 1. `if` statement evaluates a condition in parentheses and, if the result is true, executes a block of code.
 2. You can use `?` statement instead of `if` statements.
@@ -1017,7 +1018,7 @@ alert(accessAllowed);
 let accessAllowed = (age > 18) ? true : false;
 ```
 
-## 11 Logical operators
+## Logical operators
 
 1. There are four logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT), `??` (Nullish Coalescing).
 2. `||` OR operator =>  If any of its arguments are `true`, it returns `true`, otherwise it returns `false`.
@@ -1048,7 +1049,7 @@ alert( !true ); // false
 alert( !0 ); // true
 ```
 
-## 12 Nullish coalescing operator '??'
+## Nullish coalescing operator '??'
 
 1. A value is **defined** when it’s neither `null` nor `undefined`.
 2. The result of `a ?? b` is:
@@ -1063,11 +1064,11 @@ height = height ?? 100;
 ```
 
 
-## 13 Loops: while & for
+## Loops: while & for
 
 1. A single execution of the loop body is called an *iteration*.
 
-#### 1 While Loop
+### While Loop
 
 1. Loop iterate the body until the condition becomes `false`.
 2. Curly braces are not required for a single-line body.
@@ -1085,7 +1086,7 @@ while (i < 3) { // shows 0, then 1, then 2
 }
 ```
 
-#### 2 do...while loop
+### do...while loop
 
 1. The loop will first execute the body, then check the condition.
 2. Use when you need to run the code atleast once even though the condition is wrong.
@@ -1103,7 +1104,7 @@ do {
 } while (i < 3);
 ```
 
-#### 3 for loop
+### for loop
 
 ```js
 for (begin; condition; step) {
@@ -1115,7 +1116,7 @@ for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
 }
 ```
 
-#### 4 Break and Continue
+### Break and Continue
 
 1. Normally, a loop exits when its condition becomes falsy.
 
@@ -1134,7 +1135,7 @@ while (true) {
 alert( 'Sum: ' + sum );
 ```
 
-#### 5 Continue
+### Continue
 
 1. It stops the current iteration and forces the loop to start a new one (if the condition allows).
 2. If you don't want to do anything in the current iteration, and would like to go forward to next one, use `continue`.
@@ -1149,7 +1150,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-#### 6 Label
+### Label
 
 1. A label is an identifier with a colon before a loop.
 2. Labels do not allow to *jump* anywhere.
@@ -1172,7 +1173,7 @@ outer: for (let i = 0; i < 3; i++) {
 
 alert('Done!');
 ```
-## 14 Switch statements
+## Switch statements
 
 1. The switch has one or more case blocks and an optional default.
 2. It is similar to `if else if` statements. 
@@ -1194,7 +1195,7 @@ switch(x) {
 }
 ```
 
-## 15 Functions
+## Functions
 
 1. `function` is some block of code, to be called many times without repetition.
 2. To create a function we can use a `function` *declaration*.
@@ -1215,7 +1216,7 @@ function showMessage() {    // custom function
 showMessage();
 showMessage();
 ```
-#### 1 Local variables
+### Local variables
 
 1. A variable declared *inside* a function is only visible inside that function.
 2. 
@@ -1232,7 +1233,7 @@ showMessage(); // Hello, I'm JavaScript!
 alert( message ); // <-- Error! The variable is local to the function
 ```
 
-#### 2 Outer variables
+### Outer variables
 
 1. A variable declared outside a function, also known as *Global variable*.
 2. function has full access to the outer variable. The outer variable is only used if there’s no local one.
@@ -1255,7 +1256,7 @@ showMessage();
 alert( userName ); // John, unchanged, the function did not access the outer variable
 ```
 
-#### 3 Parameters
+### Parameters
 
 1. Pass the arbitrary data to functions using parameters.
 2. When the function is called, the given values are copied to local variables. `from` and `text`. You can use *outside* the function.
@@ -1274,7 +1275,7 @@ showMessage(from, "Hello"); // *Ann*: Hello
 alert( from ); // Ann
 ```
 
-#### 4 Default values
+### Default values
 
 1. If a function is called, but an argument is not provided, then the corresponding value becomes undefined.
 2. For more info, follow this [link](https://javascript.info/function-basics#default-values)
@@ -1287,7 +1288,7 @@ function showMessage(from, text = "no text given") {
 showMessage("Ann"); // Ann: no text given
 ```
 
-#### 5 Returning a value
+### Returning a value
 
 1. A function can return a value back into the calling code as the result.
 2. When the execution reaches it, the function stops, and the value is returned to the calling code. (assigned to `result` above)
@@ -1313,7 +1314,7 @@ function doNothing() {
 alert( doNothing() === undefined ); // true
 ```
 
-#### 6 Naming a function
+### Naming a function
 
 1. Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does.
 2. One function – one action
@@ -1332,7 +1333,7 @@ createForm(..)      // creates a form (and usually returns it)
 checkPermission(..) // checks a permission, returns true/false
 ```
 
-## 16 Function expressions
+## Function expressions
 
 1. As the function creation happens in the context of the assignment expression (to the right side of `=`), this is a *Function Expression*.
 2. After `function` declaration, no need to write a *name*, called *anonymous function*.
@@ -1343,10 +1344,10 @@ let sayHi = function() { // function expression
 };
 ```
 
-#### 1 Function is a value
+### Function is a value
 
 1. No matter how the function is created, a function is a value.
-2. A function is a *special value*, in the sense that we can call it like sayHi().
+2. A function is a *special value*, in the sense that we can call it like `sayHi()`.
 3. We can copy a function to another variable. *copy without parathesis*, otherwise it will the function.
 4. The semicolon `;` is recommended at the end of the statement, it’s not a part of the function syntax.
 
@@ -1365,6 +1366,7 @@ function sayHi() {   // (1) create
 }
 
 let func = sayHi;    // (2) copy
+// let func = sayHi(); // ❌ wrong, remove paranthesis to copy
 
 func(); // Hello     // (3) run the copy (it works)!
 sayHi(); // Hello    //     this still works too (why wouldn't it)
@@ -1375,7 +1377,7 @@ let sayHi = function() {
 ```
 
 
-#### 2 Callback functions
+### Callback functions
 
 1. A callback function is a `function` that is passed as an *argument* to another function.
 2. Fore more info, follow this [link](https://javascript.info/function-expressions#callback-functions).
@@ -1400,10 +1402,10 @@ function showCancel() {
 ask("Do you agree?", showOk, showCancel);
 ```
 
-#### 3 Function Expression vs Function Declaration
+### Function Expression vs Function Declaration
 
-1. A Function Declaration can be called earlier than it is defined.
-2. When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an “initialization stage”.
+1. A Function Declaration can be called earlier than it is defined _(hoisted)_. 
+2. When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an “initialization stage”, called [`hoisting`](#)
 3. And after all Function Declarations are processed, the code is executed. So it has access to these functions.
 
 <table>
@@ -1465,7 +1467,7 @@ let sayHi = function() { // (1) create
 };
 
 let func = sayHi;
-// ...
+// same as beside mention
 ```
 
 </td>
@@ -1505,13 +1507,14 @@ let sayHi = function(name) {  // (*) no magic any more
 </table>
 
 
-## 17 Arrow functions, the basics
+## Arrow functions, the basics
 
 1. Arrow function is similar to function expression, but only different in syntax.
 2. Arrow function can have Single and multi-line.
 3. Single line automatically returns the expression and Multi-line needs `return` statement.
 		- Without curly braces: `(...args) => expression`, function evaluate implicitly `returns` the result
 		- With curly braces: `(...args) => { return body }` but we need an explicit `return` to return something.
+4. More to come, please visit this [page](#) 
 
 <table>
 <tr>

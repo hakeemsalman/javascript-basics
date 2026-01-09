@@ -27,7 +27,7 @@
 	- [8. Number Limits](#8-number-limits)
 	- [Special Numeric Values](#special-numeric-values)
 		- [Infinity](#infinity)
-		- [NaN (Not a Number)](#nan-not-a-number)
+		- [NaN (Not a Number), Comparision number](#nan-not-a-number-comparision-number)
 	- [9. Checking Numbers](#9-checking-numbers)
 	- [10. `parseInt(str, [radix])` and `parseFloat`](#10-parseintstr-radix-and-parsefloat)
 	- [Math Functions](#math-functions)
@@ -36,6 +36,8 @@
 		- [Math.pow()](#mathpow)
 	- [Key Points (Interview-Critical)](#key-points-interview-critical)
 	- [One-Line Interview Explanation](#one-line-interview-explanation)
+- [Strings](#strings)
+- [Arrays](#arrays)
 
 
 # Methods of Primitives
@@ -412,7 +414,7 @@ alert(1 / 0);       // Infinity
 alert(Infinity);   // Infinity
 ```
 
-### NaN (Not a Number)
+### NaN (Not a Number), Comparision number
 
 Represents an invalid numeric operation.
 
@@ -527,3 +529,11 @@ alert( Math.pow(2, 5) ); // 2 in power 5 = 32
 
 > JavaScript uses double-precision floating-point numbers, which can cause precision issues, so numeric operations must be handled carefully.
 
+# Strings
+
+> Please visit this [page](https://hakeemsalman.github.io/javascript-string-cheatsheet/) for more details on Strings
+
+
+# Arrays
+
+> Please visit this [page](https://hakeemsalman.github.io/javascript-array-cheatsheet/) for more details on Strings
