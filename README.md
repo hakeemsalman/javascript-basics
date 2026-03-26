@@ -11,6 +11,7 @@
 1. [Javascript Basics](./Javascript-basics.md)
 2. [Javascript Objects](./Javascript-objects.md)
 3. [Javascript Data Types](./Javascript-datatypes.md)
+4. [Javascript Strings](./strings.md)
 
 ### Other cheatsheet or notes links
 
